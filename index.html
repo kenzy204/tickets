@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .blue-table {
+            background-color: #4848ff; /* Blue background for the table */
+            color: #ffffff; /* White text color for better contrast */
+            position: relative;
+        }
+        .blue-table th, .blue-table td {
+            border: 1px solid #ffffff; /* White border for the table cells */
+        }
+        .top-bar {
+            position:left;
+            width: 100%;
+            background-color: #ffffff; /* White background color for the bar */
+            color: #000000; /* Text color for contrast */
+            text-align:left;
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            /* Blue bottom border for contrast */
+        }
+        .side-bar {
+            position: absolute;
+            top: 0;
+            right: -30px; /* Adjust as needed */
+            width: 20px; /* Width of the side bar */
+            height: 80%;
+            background-color: #4444ffe1; /* Blue background color for the side bar */
+            color: #ffffff; /* Text color */
+            text-align: center;
+            line-height: 1.0;
+            font-size: 15px;
+            font-weight: bold;
+            border-left: 2px solid #ffffff; /* White border for the side bar */
+            transform: rotate(90deg);
+            transform-origin: top left;
+            padding-left: 10px; /* Padding for side bar text */
+        }
+        .button {
+            background-color: #f9fbf9; /* Light background for buttons */
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .active-cell {
+            background-color: #45a049; /* Green background for active cell */
+            color: #ffffff; /* White text color for better contrast */
+        }
+        .active-button {
+            background-color: #45a049; /* Green background for active button */
+            color: #ffffff; /* White text color for better contrast */
+        }
+        #qr-code {
+            display: none; /* Hidden by default */
+            text-align: center;
+            margin-top: 20px;
+        }
+        #qr-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        /* Hamburger Button Styles */
+        .hamburger {
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px;
+             /* Blue border for visibility */
+            border-radius: 2px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+        .hamburger div {
+            width: 20px;
+            height: 3px;
+            background-color: #000000; /* Blue lines for the hamburger button */
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for Table with Bar and Side Bar -->
+    <div style="position: relative; margin-bottom: 15px;">
+        <div class="top-bar">
+            TICKETSMARCHE
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        
+
+        <!-- First Table with "Tickets Marche" -->
+        <table class="blue-table">
+            <tbody>
+                <tr>
+                    <td style="text-align: center; font-size: 24px; background-color: #6262f3; color: #ffffff;">
+                        Tickets 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Second Table with Buttons -->
+    <table>
+        <tbody>
+            <tr>
+                <td id="tickets-cell">
+                    <a href="#" class="button" id="tickets-button">Tickets</a>
+                </td>
+                <td>
+                    <a href="#" class="button">Summary</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Container for QR Code -->
+    <div id="qr-code">
+        <img id="qr-image" src="" alt="QR Code">
+        <div id="qr-text">
+           <h3>&ME AT SOL BEACH</h3> <br>
+            Fri 26th Jul 2024<br>
+            Backstage Standing<br>
+            <h4>Backstage Standing</h4><br>
+            8736970863865
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('tickets-button').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            // Apply active class to the parent <td> and the button itself
+            var ticketsCell = document.getElementById('tickets-cell');
+            var ticketsButton = document.getElementById('tickets-button');
+            
+            ticketsCell.classList.add('active-cell');
+            ticketsButton.classList.add('active-button');
+            
+            // QR code text and URL setup
+            var qrCodeText = "&ME AT SOL BEACH\nFri 26th Jul 2024\nBackstage Standing\nBackstage Standing\n8736970863865";
+            var qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(qrCodeText);
+            var qrCodeImage = document.getElementById('qr-image');
+            var qrCodeContainer = document.getElementById('qr-code');
+            
+            qrCodeImage.src = qrCodeUrl;
+            qrCodeContainer.style.display = 'block'; // Show the QR code
+        });
+    </script>
+</body>
+</html>
