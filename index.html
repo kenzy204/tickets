@@ -46,7 +46,6 @@
             padding: 10px;
             font-size: 15px;
             font-weight: bold;
-            /* Blue bottom border for contrast */
         }
         .side-bar {
             position: absolute;
@@ -94,6 +93,13 @@
             text-align: center;
             margin-top: 20px;
         }
+        #qr-container {
+            background-color: #ffffff; /* White background for the QR container */
+            border: 2px solid #dddddd; /* Light grey border */
+            padding: 20px; /* Padding around the QR code and text */
+            border-radius: 10px; /* Rounded corners */
+            display: inline-block; /* Shrink to fit content */
+        }
         #qr-text {
             text-align: center;
             margin-top: 10px;
@@ -105,7 +111,7 @@
             display: inline-block;
             cursor: pointer;
             padding: 5px;
-             /* Blue border for visibility */
+            /* Blue border for visibility */
             border-radius: 2px;
             position: absolute;
             right: 10px;
@@ -131,7 +137,7 @@
                 <div></div>
             </div>
         </div>
-        <p style="font-weight: bold;">Order 444359</p>
+        <p style="font-weight: bold;">Order 444356</p>
 
         <!-- First Table with "Name", "Order Date", "Total Paid", "Tickets" -->
         <table class="blue-table">
@@ -172,14 +178,16 @@
 
     <!-- Container for QR Code -->
     <div id="qr-code">
-        <img id="qr-image" src="" alt="QR Code">
-        <div id="qr-text">
-           <h3>ANOTR</h3> <br>
-            Thu 1st Aug 2024<br>
-            Standing Invitation<br>
-            <h4>Standing</h4><br>
-            <h4>Standing Invitation</h4><br>
-            8736970863878
+        <div id="qr-container">
+            <img id="qr-image" src="" alt="QR Code">
+            <div id="qr-text">
+               <h3>ANOTR</h3> <br>
+                Thu 1st Aug 2024<br>
+                Standing Invitation<br>
+                <h4>Standing</h4><br>
+                <h4>Standing Invitation</h4><br>
+                8736970863865
+            </div>
         </div>
     </div>
 
